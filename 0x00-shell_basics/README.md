@@ -10,5 +10,5 @@ echo $HOME
 To list the directories in long
 ls -l
 
-To list hidden files
-ls -a 
+To list hidden files and in the long format
+ls -al 
