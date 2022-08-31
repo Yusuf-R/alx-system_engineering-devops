@@ -6,3 +6,6 @@ ls
 
 To bring me home 
 echo $HOME
+
+To list the directories in long
+ls -l 
