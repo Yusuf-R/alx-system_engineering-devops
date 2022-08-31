@@ -36,3 +36,8 @@ cd -
 
 To list all the items in different directories 
 ls -all /path/path /path/path /path/path/path
+
+To display file type 
+file filename or file /path/filename
+
+
