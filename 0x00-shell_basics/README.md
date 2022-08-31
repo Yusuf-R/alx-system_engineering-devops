@@ -31,4 +31,4 @@ To delete an empty directory
 rm /path/directory
 
 To change back
-cd ..
+cd -
