@@ -17,4 +17,7 @@ To list files with user gorupu
 ls -aln
 
 To creat a file to a directory
-mkdir /tmp/my_first_directory 
+mkdir /tmp/my_first_directory
+
+To move to file to another directory
+mv /path/filename /path/path/ 
