@@ -21,3 +21,7 @@ mkdir /tmp/my_first_directory
 
 To move to file to another directory
 mv /path/filename /path/path/ 
+
+
+To delete
+rm /path/file
