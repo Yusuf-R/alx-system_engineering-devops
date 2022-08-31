@@ -29,3 +29,6 @@ rm /path/file
 
 To delete an empty directory
 rm /path/directory
+
+To change back
+cd ..
