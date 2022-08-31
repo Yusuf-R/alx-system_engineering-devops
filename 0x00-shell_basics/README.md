@@ -41,4 +41,7 @@ To display file type
 file filename or file /path/filename
 
 Creating a symbolic link
-n -s /bin/ls  _ _ ls _ _
+n -s /bin/ls __ls__
+
+Copying specif files
+cp -nu *.html ..
