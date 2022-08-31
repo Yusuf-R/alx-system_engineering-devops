@@ -34,5 +34,5 @@ To change back
 cd -
 
 
-To list all the items 
-ls -all
+To list all the items in different directories 
+ls -all /path/path /path/path /path/path/path
