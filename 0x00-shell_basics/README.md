@@ -8,4 +8,7 @@ To bring me home
 echo $HOME
 
 To list the directories in long
-ls -l 
+ls -l
+
+To list hidden files
+ls -a 
