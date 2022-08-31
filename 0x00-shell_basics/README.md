@@ -3,3 +3,6 @@ Command :pwd
 
 To list things
 ls
+
+To bring me home 
+echo $HOME
