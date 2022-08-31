@@ -23,5 +23,9 @@ To move to file to another directory
 mv /path/filename /path/path/ 
 
 
-To delete
+To delete a file
 rm /path/file
+
+
+To delete an empty directory
+rm /path/directory
