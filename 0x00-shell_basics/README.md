@@ -14,4 +14,7 @@ To list hidden files and in the long format
 ls -al
 
 To list files with user gorupu
-ls -aln 
+ls -aln
+
+To creat a file to a directory
+mkdir /tmp/my_first_directory 
