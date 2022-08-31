@@ -32,3 +32,7 @@ rm /path/directory
 
 To change back
 cd -
+
+
+To list all the items 
+ls -all
