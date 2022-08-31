@@ -40,4 +40,5 @@ ls -all /path/path /path/path /path/path/path
 To display file type 
 file filename or file /path/filename
 
-
+Creating a symbolic link
+n -s /bin/ls  _ _ ls _ _
