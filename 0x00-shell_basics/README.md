@@ -58,4 +58,7 @@ mkdir -p a/b/c/d
 Sorting order alphanumerical
 ls -apmv
 
+Magic
+file -C -m filename
+
 
