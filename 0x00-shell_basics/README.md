@@ -55,4 +55,7 @@ rm -r *~
 Creating a tree directory
 mkdir -p a/b/c/d
 
+Sorting order alphanumerical
+ls -apmv
+
 
