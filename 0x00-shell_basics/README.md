@@ -52,4 +52,7 @@ mv [:upper:]* /tmp/u
 Move all files with tilda
 rm -r *~
 
+Creating a tree directory
+mkdir -p a/b/c/d
+
 
