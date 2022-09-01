@@ -1,2 +1,2 @@
 #!/bin/bash
-touch /root/alx-system_engineering-devops/0x01-shell_permissions/4-empty/hello
+touch hello
