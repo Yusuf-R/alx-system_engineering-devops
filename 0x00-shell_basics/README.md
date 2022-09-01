@@ -47,4 +47,9 @@ Copying specif files
 cp -nu *.html ..
 
 Moving uppercase
-mv [upper] * /tmp/u
+mv [:upper:]* /tmp/u
+
+Move all files with tilda
+rm -r *~
+
+
