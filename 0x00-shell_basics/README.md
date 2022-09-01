@@ -45,3 +45,6 @@ n -s /bin/ls __ls__
 
 Copying specif files
 cp -nu *.html ..
+
+Moving uppercase
+mv [upper] * /tmp/u
