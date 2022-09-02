@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo --from=guillaume betty hello
+sudo --from=guillaume betty
