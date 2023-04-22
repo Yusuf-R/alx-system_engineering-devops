@@ -1,4 +1,4 @@
-# manifest that kills a process `killmenow` using pkill
+# A puppet manifest that kills a process `killmenow` using pkill
 
 package { 'procps':
     ensure => 'installed',
