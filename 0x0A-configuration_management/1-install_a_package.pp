@@ -1,4 +1,4 @@
-# this Puppet manifest installs `flask` from `pip3`
+# A Puppet manifest to installs `flask` from `pip3`
 
 exec { 'update-apt':
     command     => '/usr/bin/apt-get update',
