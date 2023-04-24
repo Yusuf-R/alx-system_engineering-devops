@@ -1,4 +1,5 @@
 # makes changes to the client ssh configuration file
+# a ppa client for roboust automation
 
 file { '/etc/ssh/ssh_config':
   ensure  => 'present',
