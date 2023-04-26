@@ -1,4 +1,4 @@
-# configures server using puppet
+# configures my server using puppet
 
 exec {'/usr/bin/env apt-get -y update': }
 exec {'/usr/bin/env apt-get -y install nginx': }

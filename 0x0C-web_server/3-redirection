@@ -24,7 +24,7 @@ sudo nginx;
 sudo sh -c 'echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name cheezaram.tech;
+    server_name tavish.tech;
 
     # move /redirect_me to 301 Moved Permanently
     rewrite ^/redirect_me http://cheezaram.tech permanent;

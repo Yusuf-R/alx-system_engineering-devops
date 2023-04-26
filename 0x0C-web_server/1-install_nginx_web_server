@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# configures my new Ubuntu machine by installing nginx listening on port 80
+# configures my current Ubuntu machine by installing nginx listening on port 80
 # when quering Nginx at its root `/` with a GET request using `curl`, it must
 #+ return a page that contains the string `Hello World!`
 
