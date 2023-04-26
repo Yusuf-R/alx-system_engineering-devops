@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-#This script uses until loop to print "Best School" 10 times
-i=1
-until ((i>10))
+# displaying "Best School" 10 times
+msg="Best School"
+cnt=0
+until (("$cnt" == 10))
 do
-	echo "Best School"
-	((i++))
+        echo "$msg"
+        ((cnt++))
 done
