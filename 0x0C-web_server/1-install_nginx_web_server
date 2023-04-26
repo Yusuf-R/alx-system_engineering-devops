@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-# configures my current Ubuntu machine by installing nginx listening on port 80
-# when quering Nginx at its root `/` with a GET request using `curl`, it must
-#+ return a page that contains the string `Hello World!`
-
-# stop any service using port 80
+# install an nginx server
 for pid in $(sudo lsof -t -i :80); do
     sudo kill "$pid" &>/dev/null
 done
