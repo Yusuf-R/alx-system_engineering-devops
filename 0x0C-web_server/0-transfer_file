@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# scipt to transfer a file from our client to a server
+# using scp on our scipt to transfer a file from our client to a server
 # accepts 4 parameters:
 # 1. path to file
 # 2. server ip
