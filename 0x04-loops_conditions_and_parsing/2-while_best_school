@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # displaying "Best School" 10 times
 msg="Best School"
-cnt=1
+cnt=0
 while ((cnt<10))
 do
         echo "$msg"
