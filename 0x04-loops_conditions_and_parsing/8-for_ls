@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # a bash script that displays the directory in a list format
 # and truncating every namae that has -
-
 disp=( * )
 for file in "${disp[@]}"
 do
@@ -9,5 +8,7 @@ do
 	then
 		name=${file#*-}
 		echo "$name"
+	else
+		echo "$file"
 	fi
 done
