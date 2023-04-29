@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-# This script parses apache log files and returns ip and corr. HTTP code
-awk '{print $1, $9}' apache-access.log
+# Extract the data from the apache log file
+data="apache-access.log"
+awk '{print $1, $9}' $data
+# echo $data | awk '{print $0}'
