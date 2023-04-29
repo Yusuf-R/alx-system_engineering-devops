@@ -2,4 +2,3 @@
 # Extract the data from the apache log file
 data="apache-access.log"
 awk '{print $1, $9}' $data
-# echo $data | awk '{print $0}'
