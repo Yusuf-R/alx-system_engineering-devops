@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
-# This script displays the contents of the file "/etc/passwd"
-input="/etc/passwd"
-while IFS= read -r line; do
-	echo "$line" | cut -d ":" -f 1,3,6
-done < "$input"
+
+output=$(cat /etc/passwd)
+while read -r eachline
+do
+	username=$(echo "$eachline" | cut -d: -f1)
+	uid=$(echo "$eachline" | cut -d: -f3)
+	homedir=$(echo "$eachline" | cut -d: -f6)
+
+	# Display the required information for each user
+	echo "$username:$uid:$homedir"
+
+done <<< "$output"
