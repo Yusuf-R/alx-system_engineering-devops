@@ -1,8 +1,13 @@
-# to creates a new file in the /tmp directory.
-file { '/tmp/school':
-    ensure  => file,
-    mode    => '0744',
-    owner   => 'www-data',
-    group   => 'www-data',
-    content => "I love Puppet\n"
+# create a file using puppet
+$name = '/temp/school'
+$path = '/tmp/'
+$text = 'I love Puppet'
+$ow_grp = 'www-data'
+
+file { $name:
+  mode    => '0744',
+  owner   => $ow_grp,
+  group   => $ow_grp,
+  content => $text
+  path    => $path,
 }
