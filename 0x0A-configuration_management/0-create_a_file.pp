@@ -1,6 +1,6 @@
 # create a file using puppet
 $name = '/temp/school'
-$path = '/tmp/'
+$path = '/tmp'
 $text = 'I love Puppet'
 $ow_grp = 'www-data'
 
