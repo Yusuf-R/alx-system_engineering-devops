@@ -1,11 +1,5 @@
-# A puppet manifest that kills a process `killmenow` using pkill
+# kills a process named killmenow.
 
-package { 'procps':
-    ensure => 'installed',
-}
-
-exec { 'kill-process':
-    command => '/usr/bin/pkill -f killmenow',
-    onlyif  => '/usr/bin/pgrep -f killmenow',
-    require => Package['procps'],
-}
+exec { 'killmenow':
+  command => 'pkill -9 $(ps aux | grep "killmenow"',
+  }
