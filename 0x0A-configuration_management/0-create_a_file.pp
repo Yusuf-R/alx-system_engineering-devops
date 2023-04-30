@@ -1,12 +1,9 @@
 # create a file using puppet
-$path = '/temp/school'
-$text = 'I love Puppet'
-$ow_grp = 'www-data'
 
-file { $path:
-  ensure  => 'present',
+file { 'school_file':
   mode    => '0744',
-  owner   => $ow_grp,
-  group   => $ow_grp,
-  content => $text,
+  owner   => 'www-data',
+  group   => 'www-data',
+  content => 'I love Puppet',
+  path    => /temp/school
 }
