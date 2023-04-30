@@ -1,12 +1,20 @@
 # create a file using puppet
-$path = '/tmp/school'
-$text = 'I love Puppet'
 $ow_grp = 'www-data'
+$text = 'I love Puppet'
 
-file { 'school':
-  mode    => '0744',
+# Create /tmp directory if it does not exist
+file { '/tmp':
+  ensure => directory,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0755',
+}
+
+# Create school file in /tmp directory
+file { '/tmp/school':
+  content => $text,
   owner   => $ow_grp,
   group   => $ow_grp,
-  content => $text,
-  path    => $path,
+  mode    => '0744',
 }
+
