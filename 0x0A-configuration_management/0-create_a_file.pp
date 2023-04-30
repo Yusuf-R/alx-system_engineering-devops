@@ -4,9 +4,10 @@ $text = 'I love Puppet'
 $ow_grp = 'www-data'
 
 file { 'school_file':
+  ensure  => 'present',
   mode    => '0744',
   owner   => $ow_grp,
   group   => $ow_grp,
   content => $text,
-  path    => $path
+  path    => $path,
 }
