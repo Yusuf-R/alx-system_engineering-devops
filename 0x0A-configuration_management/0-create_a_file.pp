@@ -2,7 +2,7 @@
 $path = '/tmp/school'
 $text = 'I love Puppet'
 $ow_grp = 'www-data'
-$name = 'school_ins'
+$name = 'school'
 
 file { $name:
   mode    => '0744',
