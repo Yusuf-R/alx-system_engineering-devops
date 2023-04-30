@@ -8,6 +8,6 @@ file { $name:
   mode    => '0744',
   owner   => $ow_grp,
   group   => $ow_grp,
-  content => $text
+  content => $text,
   path    => $path,
 }
