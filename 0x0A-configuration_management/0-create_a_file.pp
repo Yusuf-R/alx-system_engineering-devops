@@ -2,10 +2,8 @@
 $path = '/tmp/school'
 $text = 'I love Puppet'
 $ow_grp = 'www-data'
-$name = 'school'
 
-file { $name:
-  ensure  => 'present'
+file { 'school':
   mode    => '0744',
   owner   => $ow_grp,
   group   => $ow_grp,
