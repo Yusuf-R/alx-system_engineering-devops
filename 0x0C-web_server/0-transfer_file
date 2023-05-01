@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
-# using scp on our scipt to transfer a file from our client to a server
-# accepts 4 parameters:
-# 1. path to file
-# 2. server ip
-# 3. username
-# 4. path to ssh key
+# Transfer file to my server
+# Accepts 4 parameters
+#	1 - path for the source file
+#	2 - ip of server
+#	3 - username
+#	4 - path to the ssh privat key
+# Error if less than 3 parameters:
+#	Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_#			TO_SSH_KEY
+# Destination is to the home dir ~/
+# Diabale strict host checking
 
 err_msg="Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 
-if [ $# -lt 4 ]; then
-    echo "$err_msg"
-    exit 1
+if (( $# < 4 ))
+then
+	echo "$err_msg"
+	exit 1
 fi
 
-# assign parameters to variables
-file_name=$1
+file_path=$1
 server_ip=$2
-username=$3
+server_name=$3
 ssh_key=$4
 
-# use scp to transfer file from our client to a server's home directory
-# check if scp command was successful
-if scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_name" "$username@$server_ip:~/"; then
-    echo "File transferred successfully."
+# transfer the file
+# if sucessful, echo success else faile
+if scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_path" "$server_name@$server_ip:~/"
+then
+	echo "File transfer was sucessful."
 else
-    echo "File transfer failed."
+	echo "File transfer failed."
 fi
