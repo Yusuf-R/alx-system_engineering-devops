@@ -27,8 +27,7 @@ sudo sh -c 'echo "server {
     server_name tavish.tech;
 
     # move /redirect_me to 301 Moved Permanently
-    rewrite ^/redirect_me http://cheezaram.tech permanent;
-
+    rewrite ^/redirect_me http://tavish.tech permanent;
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
 
