@@ -19,7 +19,7 @@ exec {'custom default page':
 # Using holberton as the domain name rather than our own
 # this setting up another server block for our nginx
 exec {'performing a move to pemnanet':
-  command => '/usr/bin/env sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.holbertonschool.com permanent;" /etc/nginx/sites-available/default',
+  command => '/usr/bin/env sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.tavish.tech permanent;" /etc/nginx/sites-available/default',
 }
 
 # Handling our error page
