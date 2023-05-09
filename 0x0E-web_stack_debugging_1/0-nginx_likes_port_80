@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
-# This configures /etc/nginx/sites-enabled/default file from port 8080 to 80:
-sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-service nginx restart
+# find out what’s keeping your Ubuntu container’s Nginx installation from listening on port 80
+# ****************Solution******************************
+# check the config at /etc/nginx/site-available/default to accertain listening port
+# it was fine
+# checked /var/log/nginx/error.log and access.log, not much info provides
+# we finally checked the /etc/nginx/site-enabled/default
+# 	we observed it was listening to port 8080
+# 	perhaps an old instance still running
+# we removd the file
+# and creat a new symbolic link to our current config at /etc/nginx/sites-available/default
+# then we reload nginx and restart nginx
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
