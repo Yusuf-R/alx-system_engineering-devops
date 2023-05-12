@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# resolving the config of the nginx server to return curl request on port80
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# This script sets up nginx to show "nginx is not running" when queried by service (init)
+sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
-pkill -o nginx
+pkill -SIGHUP nginx -f > /dev/null 2>&1 || true
