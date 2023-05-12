@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # resolving the config of the nginx server to return curl request on port80
-sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
+pkill -o nginx
