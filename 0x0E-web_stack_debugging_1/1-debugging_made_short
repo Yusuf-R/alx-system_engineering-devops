@@ -2,4 +2,4 @@
 # This script sets up nginx to show "nginx is not running" when queried by service (init)
 sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
-pkill -SIGHUP nginx -f > /dev/null 2>&1 || true
+pkill -SIGHUP nginx
