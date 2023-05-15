@@ -53,9 +53,9 @@ then
 
 	#echo the content
 	
-	echo "The subdoamin ${sub_domain[0]} is a $w_DNS_Rec record and points to $w_Server_IP"
-	echo "The subdoamin ${sub_domain[1]} is a $lb_DNS_Rec record and points to $lb_Server_IP"
-	echo "The subdoamin ${sub_domain[2]} is a $w1_DNS_Rec record and points to $w1_Server_IP"
-	echo "The subdoamin ${sub_domain[3]} is a $w2_DNS_Rec record and points to $w2_Server_IP"
+	echo "The subdomain ${sub_domain[0]} is a $w_DNS_Rec record and points to $w_Server_IP"
+	echo "The subdomain ${sub_domain[1]} is a $lb_DNS_Rec record and points to $lb_Server_IP"
+	echo "The subdomain ${sub_domain[2]} is a $w1_DNS_Rec record and points to $w1_Server_IP"
+	echo "The subdomain ${sub_domain[3]} is a $w2_DNS_Rec record and points to $w2_Server_IP"
 
 fi
