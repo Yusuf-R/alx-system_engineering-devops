@@ -1,8 +1,61 @@
 #!/usr/bin/env bash
-# information about subdomains will be displayed
-if [ $# -eq 1 ]; then
-	queries="www.$1 lb-01.$1 web-01.$1 web-02.$1"
-else
-	queries="$2.$1"
+# a script that will display information about subdomains
+
+# a function that will always return the second line of our header + the field of intrest in the second line
+function domain_info() {
+	ans_header="$(dig "$1" | grep -A1 "ANSWER SECTION:" | awk '{if(NR==2) print $4, $5}')"
+	echo "$ans_header"
+}
+
+# main body
+
+# if cmd args is more than 1
+if (( "$#" > 1 ))
+then
+	# calling the functino and assign it return value
+	dn_info="$(domain_info "$2.$1")"
+
+	# extract the dns record type and the server ip address
+	DNS_Record=$(echo "${dn_info[@]}" | cut -d " " -f 1)
+	Server_IP=$(echo "${dn_info[@]}" | cut -d " " -f 2)
+
+	# echo the message content
+	echo "The subdomain $2 is a $DNS_Record record and points to $Server_IP"
 fi
-dig $queries | awk '/ANSWER SECTION:/ { getline; split($1, a, "."); print "The subdomain", a[1], "is a", $4, "record and points to", $5}'
+
+if (( "$#" == 1))
+then
+
+	www_rec="$(domain_info "www.$1")"
+	lb_rec="$(domain_info "lb-01.$1")"
+	web1_rec="$(domain_info "web-01.$1")"
+	web2_rec="$(domain_info "web-02.$1")"
+	
+	# create a list of sub-domains
+	sub_domain=(www lb-01 web-01 web-02)
+
+	# www
+	w_DNS_Rec=$(echo "${www_rec[@]}" | cut -d " " -f 1)
+	w_Server_IP=$(echo "${www_rec[@]}" | cut -d " " -f 2)
+
+	#lb-01
+	lb_DNS_Rec=$(echo "${lb_rec[@]}" | cut -d " " -f 1)
+	lb_Server_IP=$(echo "${lb_rec[@]}" | cut -d " " -f 2)
+	
+	#web-01
+	w1_DNS_Rec=$(echo "${web1_rec[@]}" | cut -d " " -f 1)
+	w1_Server_IP=$(echo "${web1_rec[@]}" | cut -d " " -f 2)
+	
+	#web-02
+	w2_DNS_Rec=$(echo "${web2_rec[@]}" | cut -d " " -f 1)
+	w2_Server_IP=$(echo "${web2_rec[@]}" | cut -d " " -f 2)
+
+
+	#echo the content
+	
+	echo "The subdoamin ${sub_domain[0]} is a $w_DNS_Rec record and points to $w_Server_IP"
+	echo "The subdoamin ${sub_domain[1]} is a $lb_DNS_Rec record and points to $lb_Server_IP"
+	echo "The subdoamin ${sub_domain[2]} is a $w1_DNS_Rec record and points to $w1_Server_IP"
+	echo "The subdoamin ${sub_domain[3]} is a $w2_DNS_Rec record and points to $w2_Server_IP"
+
+fi
