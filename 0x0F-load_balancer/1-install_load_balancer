@@ -27,8 +27,8 @@ frontend http_requests
 backend web_backend
 	mode http
 	balance roundrobin
-	server 120066-web-01 100.25.204.113:80 check
-	server 120066-web-02 52.86.36.187:80 check
+	server 120066-web-01 54.160.90.38:80 check
+	server 120066-web-02 100.25.36.19:80 check
 EOF
 
 # alternatively to make the script init enaable
