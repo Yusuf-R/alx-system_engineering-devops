@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # a script that will display information about subdomains
-
 # a function that will always return the second line of our header + the field of intrest in the second line
+
 function domain_info() {
 	ans_header="$(dig "$1" | grep -A1 "ANSWER SECTION:" | awk '{if(NR==2) print $4, $5}')"
 	echo "$ans_header"
