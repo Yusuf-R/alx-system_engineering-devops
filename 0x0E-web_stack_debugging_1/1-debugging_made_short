@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script sets up nginx to show "nginx is not running" when queried by service (init)
+# This script will sets up nginx to show "nginx is not running" when queried by service (init)
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
 pkill -o nginx
