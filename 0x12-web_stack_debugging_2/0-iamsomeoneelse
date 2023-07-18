@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # check if args passed is null
-if [ $# -ne 1 ];
+if [ $# -ne 1]
 then
-	whoami
-	exit
+	echo "Usage: $0 <username>"
+    	exit 1
 fi
 
 # Get the username argument
