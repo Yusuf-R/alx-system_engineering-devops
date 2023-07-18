@@ -2,14 +2,11 @@
 # Bash script that runs the whoami command
 
 # check if args passed is null
-if [[ $# -ne 1 ]]
+if [[ -z "$1" ]]
 then
-	echo "Usage: $0 <username>"
+	echo "Usage error: <pass user>"
     	exit 1
 fi
 
-# Get the username argument
-username=$1
-
 # Run the whoami command under the specified user
-su - "$username" -c "whoami"
+sudo -u "$1" whoami
