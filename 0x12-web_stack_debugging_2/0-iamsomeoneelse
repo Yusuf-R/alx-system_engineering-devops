@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# check if args passed is null
+if [ $# -ne 1 ];
+then
+	whoami
+	exit
+fi
+
+# Get the username argument
+username=$1
+
+# Run the whoami command under the specified user
+su - $username -c "whoami"
