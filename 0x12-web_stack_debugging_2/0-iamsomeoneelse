@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+# Bash script that runs the whoami command
 
 # check if args passed is null
-if [ $# -ne 1]
+if [[ $# -ne 1 ]]
 then
 	echo "Usage: $0 <username>"
     	exit 1
@@ -11,4 +12,4 @@ fi
 username=$1
 
 # Run the whoami command under the specified user
-su - $username -c "whoami"
+su - "$username" -c "whoami"
