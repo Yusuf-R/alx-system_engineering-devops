@@ -3,7 +3,7 @@
 #user:- root  to user:- nginx 
 
 #set the user to nginx
-sudo sed '2i\user nginx;' /etc/nginx/nginx.conf
+sudo sed '2i\user nginx\;' /etc/nginx/nginx.conf
 
 #make nginx listen to port 8080
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
@@ -13,3 +13,6 @@ chmod 644 /etc/nginx/nginx.conf
 
 #apache the stubborn goat is listening on port 8080
 pkill apache2
+
+#restart nginx
+sudo -u nginx service nginx restart
