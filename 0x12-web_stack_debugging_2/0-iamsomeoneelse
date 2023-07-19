@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 # Bash script that runs the whoami command
-# check if args passed is null
-# -z is used to check if the arg 1 is empty
-# is length is 0
-if [[ -z "$1" ]]
+if [[ -z "$1" ]];
 then
 	echo "Usage error: <pass user>"
     	exit 1
 fi
-
-# Run the whoami command under the specified user
-su - "$1" -c "whoami"
+sudo -u "$1" whoami
