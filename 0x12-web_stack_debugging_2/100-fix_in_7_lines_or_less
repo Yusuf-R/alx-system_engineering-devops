@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #fix the docker container running on nginx and change the 
-sudo sed '2i\user nginx\;' /etc/nginx/nginx.conf
+sudo sed 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
 pkill apache2
