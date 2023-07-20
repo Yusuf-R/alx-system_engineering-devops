@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# The MySQL dump must contain all your MySQL databases
+pwd="$1"
+file="backup.sql"
+# this returns dat in the format of day-month -Year
+DATE="$(date +%d-%m-%Y)"
+sudo mysqldump -u root -p "$pwd" --all-databases > "$file"
+tar -czvf "$DATE".tar.gz "$file"
