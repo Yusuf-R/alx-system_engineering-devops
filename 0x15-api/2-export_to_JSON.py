@@ -1,43 +1,42 @@
 #!/usr/bin/python3
 """Module 0-gather_data_from_an_API.py"""
-import csv
-import requests
-import sys
+
+import json
+from requests import get
+from sys import argv
 
 
-def to_do(num):
-    """Returns the number of tasks for a given employee ID"""
-    if type(num) == int:
-        url_todo = "https://jsonplaceholder.typicode.com/todos"
-        url_user = "https://jsonplaceholder.typicode.com/users"
+def to_do(id):
+    """Records all tasks that are owned by this employee"""
+    usr_url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+    usr_todo = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
 
-        raw_todo = requests.get(url_todo).json()
-        raw_user = requests.get(url_user).json()
+    dummy = {}
+    usr_pyt_obj = {}
+    ls_dict = []
+    file = "{}.json".format(id)
 
-        emp_name = ""
-        emp_id = 0
-        py_form = []
-        for j in raw_user:
-            if j["id"] == num:
-                emp_name = j["username"]
-        for i in raw_todo:
-            if i["userId"] == num:
-                emp_id = i["userId"]
-                py_form.append("{}, {}, {}, {}".
-                               format(i["userId"],
-                                      emp_name,
-                                      i["completed"],
-                                      i["title"]))
-        file = "{}.csv".format(emp_id)
-        with open(file, mode="w", newline="") as f:
-            wr = csv.writer(f, quoting=csv.QUOTE_ALL)
-            for k in py_form:
-                csv_form = [val.strip() for val in k.split(", ")]
-                wr.writerow(csv_form)
+    uid_user_data = get(usr_url).json()
+    uid_todo_data = get(usr_todo).json()
 
-    else:
-        return
+    usr_username = uid_user_data["username"]
+
+    for i in uid_todo_data:
+        dummy["task"] = i["title"]
+        dummy["completed"] = i["completed"]
+        dummy["username"] = usr_username
+        ls_dict.append(dummy)
+        dummy = {}
+
+    usr_pyt_obj[str(id)] = ls_dict
+    with open(file, mode="w", newline="") as f:
+        json.dump(usr_pyt_obj, f, indent=2)
 
 
 if __name__ == "__main__":
-    to_do(int(sys.argv[1]))
+    """Lauch the script"""
+    if len(argv) != 2 or not argv[1].isdigit():
+        print("Usage: {} employee_id".format(argv[0]))
+        exit(1)
+
+    to_do(int(argv[1]))
