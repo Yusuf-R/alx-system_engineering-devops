@@ -33,7 +33,6 @@ def to_do(num):
             wr = csv.writer(f, quoting=csv.QUOTE_ALL)
             for k in py_form:
                 csv_form = [val.strip() for val in k.split(", ")]
-                wr.writerow(k.split(", "))
                 wr.writerow(csv_form)
 
     else:
