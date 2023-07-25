@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Module 0-gather_data_from_an_API.py"""
+import csv
 import requests
 import sys
-import csv
 
 
 def to_do(num):
