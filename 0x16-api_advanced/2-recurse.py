@@ -9,15 +9,14 @@ def recurse(subreddit, hot_list=[], nxt_lnk=None):
     prints the titles of ALL the hot posts listed for a given subreddit.
     """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {"User-Agent": "Mozilla/5.0"}
     query_string = {"after": nxt_lnk}
     req = requests.get(
         url, headers=headers, allow_redirects=False, params=query_string
     )
 
     if req.status_code != 200:
-        print(None)
-        return 0
+        return None
     data = req.json()
     nxt_lnk = data.get("data").get("after")
     top_level = data.get("data").get("children")
