@@ -10,7 +10,7 @@ def recurse(subreddit, hot_list=[], nxt_lnk=None):
     """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
-    query_string = {"after": nxt_lnk}
+    query_string = {"limit": 10, "after": nxt_lnk}
     req = requests.get(
         url, headers=headers, allow_redirects=False, params=query_string
     )
