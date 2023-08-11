@@ -20,6 +20,7 @@ and recommendations for improvement. This report is shared with the team and
 stakeholders, and the lessons learned are incorporated into future projects and
 processes.
 
-[Here](https://medium.com/@ri.remiisola/postmortem-internal-server-error-500-86b44a812c60)
-is a link to a post-mortem on a the Error 500 Web stack debugging 3
+[This is the formal report](https://medium.com/@ri.remiisola/postmortem-internal-server-error-500-86b44a812c60)
+and [This is the informal report](https://medium.com/@ri.remiisola/postmortem-error-500-on-the-lamp-stack-aca6fe50f165)
+for the post-mortem on a the Error 500 on the Lamp Stack.
 [tavish.tech](https://tavish.tech).
