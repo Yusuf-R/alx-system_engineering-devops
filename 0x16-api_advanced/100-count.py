@@ -13,7 +13,6 @@ def count_words(subreddit, word_list, dict_cnt=None, nxt_pg=None):
                          allow_redirects=False))
 
     if data.status_code != 200:
-        print(None)
         return
 
     if dict_cnt is None:
