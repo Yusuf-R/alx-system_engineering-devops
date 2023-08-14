@@ -1,0 +1,43 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name tavish.tech www.tavish.tech;
+	add_header X-Served-By $hostname;
+
+	location /hbnb_static {
+		alias /data/web_static/current/;
+		autoindex off;
+	}
+
+	location /airbnb-onepage {
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage;
+        }
+	
+	# ~ it is case sensistive
+	# ^ it must start with
+	# ([0-9]+) creates a group of any integers
+	# (/d+) this also works
+	# $ it must end with that number
+	# $1 is the first capturing group
+	location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+)$ {
+		proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
+
+
+	# set 404 error with a custom page
+	error_page 404 /404.html;
+	location = /404.html {
+		root /var/www/html;
+		internal;
+	}
+	
+	# configure /redirect_me to 301 Moved Permanently
+	rewrite ^/redirect_me http://tavish.tech permanent;
+	
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
