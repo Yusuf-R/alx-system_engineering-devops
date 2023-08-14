@@ -10,6 +10,7 @@ server {
 
 	location /airbnb-onepage {
                 proxy_pass http://0.0.0.0:5000/airbnb-onepage;
+		add_header X-Served-By $hostname;
         }
 
 	# set 404 error with a custom page
