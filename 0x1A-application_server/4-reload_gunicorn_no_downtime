@@ -12,5 +12,3 @@ fi
 
 # Send a graceful reload signal to Gunicorn
 kill -HUP "$gunicorn_pid"
-
-echo "Graceful reload of Gunicorn completed."
