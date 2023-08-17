@@ -1,11 +1,13 @@
-# Increase the base limit of demon process to handle high volume request
-exec { 'Incrase-nginx-daemon-limit':
-        command  => "sed -i 's/LIMIT=\"-n 15\"/LIMIT=\"-n 4096\"/g' /etc/default/nginx",
-        path     => '/bin',
-        provider => 'shell'
+# The puppet script increases the amount of traffic the nginx server can handle
+
+# increase the base limit
+exec { 'update-ulimit':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
 }
-# Restart Nginx service
--> exec { 'Restart Nginx':
-        command => 'sudo nginx restart',
-        path    => '/etc/init.d/',
+
+# Restart the nginx service
+-> exec { 'restart-nginx':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
